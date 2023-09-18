@@ -4,7 +4,7 @@
 
 int main(int argc, string argv[]){
     if (argc != 2){
-        printf("Modo de uso: ./switch (questao correspondente)\n");
+        printf("Modo de uso: ./repeticao (questao correspondente)\n");
         return 1;
     }
 
