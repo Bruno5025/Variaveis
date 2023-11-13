@@ -116,7 +116,7 @@ void classificaSalario(float salario, float salarioMinimo, int *abaixo, int *aci
 }
 
 void mostraClassifica(int abaixo, int acima) {
-    printf("Quantidade de assalariados abaixo do salário mínimo: %d\n", abaixo);
+    printf("Quantidade de assalariados abaixo ou igual do salário mínimo: %d\n", abaixo);
     printf("Quantidade de assalariados acima do salário mínimo: %d\n", acima);
 }
 
