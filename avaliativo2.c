@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <string.h>
-#include <math.h>
 
 int validaQuantidade(int quantidade);
 float calculaSalario(int quantidade);
 void processaAssalariado();
+void classificaSalario(float salario, float salarioMinimo, int *abaixo, int *acima);
+void mostraClassifica(int abaixo, int acima);
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
@@ -37,6 +38,8 @@ int main(int argc, char *argv[]) {
     if (strcmp(argv[1], "questaodois") == 0) {
         processaAssalariado();
     }
+
+    return 0;
 }
 
 int validaQuantidade(int quantidade) {
@@ -115,3 +118,4 @@ void mostraClassifica(int abaixo, int acima) {
     printf("Quantidade de assalariados abaixo do salário mínimo: %d\n", abaixo);
     printf("Quantidade de assalariados acima do salário mínimo: %d\n", acima);
 }
+
