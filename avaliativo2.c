@@ -64,6 +64,7 @@ void processaAssalariado() {
     char entrada[10];
     char sexo;
     float salario;
+    int abaixoSalario = 0, acimaSalario = 0;
 
     while (1) {
         printf("Digite o sexo do assalariado (M/F) (ou -1 para sair): ");
@@ -91,16 +92,26 @@ void processaAssalariado() {
             continue;
         }
 
+        classificaSalario(salario, salarioMinimo, &abaixoSalario, &acimaSalario);
+
         printf("Salário: R$ %.2f\n", salario);
-
-        if (salario > salarioMinimo) {
-            printf("Classificação: Acima do salário mínimo\n");
-        } else if (salario == salarioMinimo) {
-            printf("Classificação: Igual ao salário mínimo\n");
-        } else {
-            printf("Classificação: Abaixo do salário mínimo\n");
-        }
-
+        printf("Classificação: ");
+        mostraClassifica(abaixoSalario, acimaSalario);
         printf("Sexo: %s\n", (sexo == 'M' || sexo == 'm') ? "Masculino" : "Feminino");
     }
+
+    mostraClassifica(abaixoSalario, acimaSalario);
+}
+
+void classificaSalario(float salario, float salarioMinimo, int *abaixo, int *acima) {
+    if (salario > salarioMinimo) {
+        (*acima)++;
+    } else {
+        (*abaixo)++;
+    }
+}
+
+void mostraClassifica(int abaixo, int acima) {
+    printf("Quantidade de assalariados abaixo do salário mínimo: %d\n", abaixo);
+    printf("Quantidade de assalariados acima do salário mínimo: %d\n", acima);
 }
