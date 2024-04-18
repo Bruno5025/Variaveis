@@ -12,13 +12,13 @@ typedef struct {
     char curso[MAX_NOME];
 } Aluno;
 
-float calcular_media_situacao(Aluno *aluno) {
+float calculo_media(Aluno *aluno) {
     float soma = 0;
     int i;
     for (i = 0; i < aluno->num_notas; i++) {
         soma += aluno->notas[i];
     }
-    float media = soma / aluno->num_notas;
+    float media = soma / 2;
     if (media >= 7.0) {
         printf("%s, %.2f, APROVADO\n", aluno->nome, media);
     } else {
@@ -56,7 +56,7 @@ int main() {
             aluno.notas[aluno.num_notas++] = atof(token);
         }
 
-        float media = calcular_media_situacao(&aluno);
+        float media = calculo_media(&aluno);
         fprintf(saida, "%s, %.2f, %s\n", aluno.nome, media, media >= 7.0 ? "APROVADO" : "REPROVADO");
     }
 
